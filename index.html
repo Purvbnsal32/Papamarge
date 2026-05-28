@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura+Diet AI — Real-Time Conversational Video Agent Dashboard</title>
+  
+  <!-- Modern Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased font-sans">
+
+  <!-- Header Header -->
+  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+          <svg class="w-5 h-5 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <div>
+          <h1 class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-300 bg-clip-text text-transparent flex items-center gap-2">
+            Aura+Diet AI <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Agent Platform</span>
+          </h1>
+          <p class="text-xs text-slate-400">Real-Time Conversational Video Diet AI Agent powered by TruGen AI APIs & Connected MCP Tools</p>
+        </div>
+      </div>
+
+      <!-- Secure API Key Input Panel -->
+  <meta charset="UTF-8">
+  <title>Create Adarsh Agent</title>
+  <h2>Create Agent: Adarsh</h2>
+  <button id="createAgent">Send Request</button>
+
+  <pre id="response"></pre>
+
+  <script>
+    document.getElementById("createAgent").addEventListener("click", async () => {
+      const url = "https://api.trugen.ai/v1/agents";
+      const apiKey = "YOUR_TRUGEN_KEY"; // Replace with your actual Trugen API key
+
+      const payload = {
+        name: "Adarsh",
+        avatar_id: "huma01_friendly_neighbor",
+        system_prompt: "You are a diet plan assistant. Your goal is to help people find best diet plan for their work life routines and examples as follows:\nworking in offices, going to school everyday and diet plan for tiffins (a wholesome meal), or workday in colleges.\nIf someone asks for a meal plan or diet plan for a student in college or school, use the https://www.eatthismuch.com tool to prediet their tiffins.\nIf a user tells you diet plan for office, suggest some healthy and great tasty food according to their options like Vegetarian or Non-vegetarian.",
+        form_inputs: [
+          "@NonVegetarian_Diet_Plan.docx",
+          "@Vegetarian_Diet_Plan.docx"
+        ],
+        mcp_url: "https://www.strongrfastr.com/nutrition-ai-meal-planner",
+        config: {
+          timeout: 240
+        },
+        knowledge_base: null,
+        record: true,
+        callback_url: null,
+        callback_events: null
+      };
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": apiKey
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        document.getElementById("response").textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        document.getElementById("response").textContent = "Error: " + error;
+      }
+    });
+    // Your JSON data
+    const agentData = {
+      id: "51ed8d70-9379-422f-aed4-f9f2b293ba4a",
+      name: "Nutritionist"
+    };
+
+    // Insert values into the HTML
+    document.getElementById("agentId").textContent = agentData.id;
+    document.getElementById("agentName").textContent = agentData.name;
+  </script>
+
+       <iframe
+        src="https://app.trugen.ai/agent/a83bb8fd-260a-4531-a28f-48d3e9bf12a9?username=AuraUser&context=college_days"
+        width="100%"
+        height="600"
+        frameborder="0"
+        allow="camera; microphone; autoplay"
+       ></iframe>
+      <div class="flex items-center gap-2 bg-slate-900/60 p-1.5 rounded-xl border border-slate-800/80 backdrop-blur-sm max-w-sm w-full">
+        <svg class="w-4 h-4 text-slate-500 ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+        <input 
+          id="bbc0d13ae7094b249371f42275697ee3-key-input" 
+          placeholder="Paste TruGen AI Key (bbc0d13ae7094b249371f42275697ee3)..." 
+          class="bg-transparent text-xs text-slate-200 outline-none w-full placeholder-slate-600 px-1 font-mono"
+        >
+        <button 
+          id="save-key-btn" 
+          class="bg-indigo-600/90 hover:bg-indigo-600 active:scale-95 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Grid -->
+  <main class="max-w-7xl mx-auto px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    
+    <!-- COLUMN 1: CONFIGURATIONS & API LOGGER (4 Cols) -->
+    <section class="lg:col-span-4 flex flex-col gap-6">
+      
+      <!-- Card 1: Configuration Panel -->
+      <div class="card p-5 flex flex-col gap-4">
+        <div class="flex items-center gap-2 border-b border-slate-800/80 pb-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+          <h2 class="text-sm font-bold tracking-wider uppercase text-slate-300">1. Lifestyle Configurator</h2>
+        </div>
+
+        <!-- Routine Switcher -->
+        <div class="flex flex-col gap-1.5">
+          <label for="routine-select" class="text-xs font-bold text-slate-400">Target Routine Profile</label>
+          <div class="relative">
+            <select id="routine-select" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs font-semibold text-slate-200 focus:border-indigo-500 outline-none cursor-pointer appearance-none">
+              <option value="college">📚 College Days Routine (Quick, Budget, High-Protein)</option>
+              <option value="school">🎒 School Days Routine (Tiffin-friendly, Balanced Energy)</option>
+              <option value="office">💼 Office Days Routine (Meal Prep, Sustained Focus)</option>
+            </select>
+            <div class="pointer-events-none absolute right-3 top-3.5 text-slate-500">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diet Constraints -->
+        <div class="flex flex-col gap-1.5">
+          <label for="diet-goal" class="text-xs font-bold text-slate-400">Primary Nutritional Goal</label>
+          <select id="diet-goal" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-xs font-semibold text-slate-200 focus:border-indigo-500 outline-none cursor-pointer appearance-none">
+            <option value="high-protein">💪 High-Protein (Muscle support & steady energy)</option>
+            <option value="low-gi">🧠 Focus Boosting (Low Glycemic Index to combat brain fog)</option>
+            <option value="weight-loss">🔥 Shred / Weight Loss (Calorie deficit optimized)</option>
+            <option value="vegan">🌱 Pure Plant-Based / Vegan (Clean whole foods)</option>
+          </select>
+        </div>
+
+        <!-- Diet Summary HUD -->
+        <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-850 flex flex-col gap-2">
+          <h3 id="plan-title" class="text-xs font-extrabold text-indigo-400">Loading plan...</h3>
+          <div class="grid grid-cols-2 gap-2 text-center my-1">
+            <div class="bg-slate-950/60 p-2 rounded-lg border border-slate-850">
+              <div class="text-[9px] text-slate-500 font-bold uppercase">Daily Calories</div>
+              <div id="plan-calories" class="text-sm font-extrabold text-white">0 kcal</div>
+            </div>
+            <div class="bg-slate-950/60 p-2 rounded-lg border border-slate-850">
+              <div class="text-[9px] text-slate-500 font-bold uppercase">Hydration target</div>
+              <div id="plan-water" class="text-sm font-extrabold text-emerald-400">0L</div>
+            </div>
+          </div>
+          <ul id="plan-tips" class="flex flex-col gap-1.5 mt-1 border-t border-slate-800/50 pt-2">
+            <!-- Loaded dynamically -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2: Interactive Developer API Logs -->
+      <div class="card p-5 flex flex-col gap-4">
+        <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+            <h2 class="text-sm font-bold tracking-wider uppercase text-slate-300">2. TruGen AI Portal</h2>
+          </div>
+          
+          <!-- Mode Tabs -->
+          <div class="flex bg-slate-900/80 p-0.5 rounded-lg border border-slate-800">
+            <button class="px-2.5 py-1 rounded text-[10px] font-extrabold uppercase transition active" data-mode-btn="simulator">Simulate</button>
+            <button class="px-2.5 py-1 rounded text-[10px] font-extrabold uppercase transition" data-mode-btn="trugen">Provisioner</button>
+          </div>
+        </div>
+
+        <!-- Mode 1: Simulator Details -->
+        <div data-mode-section="simulator" class="flex flex-col gap-3">
+          <p class="text-xs text-slate-400 leading-normal">
+            Running in <strong>Virtual Simulator Mode</strong>. Aura will interact using voice synthesis and display real-time tool integrations (Google Calendar, grocery lists, PDF generators) on the dashboard!
+          </p>
+          <div class="flex flex-col gap-2 p-3 bg-indigo-950/10 border border-indigo-950 rounded-xl">
+            <div class="text-xs font-bold text-indigo-300 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-indigo-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              Linked AI API Tools:
+            </div>
+            <div class="grid grid-cols-2 gap-1.5 text-[9px] font-mono mt-1 text-slate-400">
+              <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">🛠️ sync_diet_calendar</span>
+              <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">🛠️ order_grocery_cart</span>
+              <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">🛠️ generate_pdf_report</span>
+              <span class="px-2 py-1 rounded bg-slate-900 border border-slate-800">🔌 health_logger_mcp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode 2: TruGen Provisioner Details -->
+        <div data-mode-section="trugen" class="flex flex-col gap-4 hidden">
+          <p class="text-xs text-slate-400 leading-normal">
+            Register your diet agent and tools programmatically on the real TruGen AI platform.
+          </p>
+
+          <!-- Accordion Payloads -->
+          <div class="flex flex-col gap-2">
+            <details class="group bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
+              <summary class="flex justify-between items-center px-3 py-2 text-xs font-bold cursor-pointer text-slate-300 hover:bg-slate-850">
+                <span>View Tool Schema (sync_diet_calendar)</span>
+                <span class="text-[10px] text-indigo-400 font-mono">POST /ext/tool</span>
+              </summary>
+              <div class="px-3 pb-3 border-t border-slate-800 bg-slate-950">
+                <pre id="tool-schema-pre" class="text-[9px] font-mono text-slate-400 overflow-x-auto p-2 max-h-48"></pre>
+              </div>
+            </details>
+
+            <details class="group bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
+              <summary class="flex justify-between items-center px-3 py-2 text-xs font-bold cursor-pointer text-slate-300 hover:bg-slate-850">
+                <span>View Agent Provisioning Schema</span>
+                <span class="text-[10px] text-indigo-400 font-mono">POST /ext/agent</span>
+              </summary>
+              <div class="px-3 pb-3 border-t border-slate-800 bg-slate-950">
+                <pre id="agent-schema-pre" class="text-[9px] font-mono text-slate-400 overflow-x-auto p-2 max-h-48"></pre>
+              </div>
+            </details>
+          </div>
+
+          <button id="provision-btn" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-98 text-white font-bold py-2.5 rounded-xl text-xs transition shadow-lg shadow-indigo-600/10">
+            Provision Live on TruGen
+          </button>
+        </div>
+
+        <!-- System Console Logs Viewer -->
+        <div class="flex flex-col gap-1.5">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Platform Action Logs</span>
+          <div id="provision-logs" class="h-32 bg-slate-950 border border-slate-900 rounded-xl p-3 font-mono text-[10px] text-slate-400 overflow-y-auto leading-relaxed flex flex-col gap-1">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLUMN 2: REAL-TIME CONVERSATIONAL VIDEO PORTAL (4 Cols) -->
+    <section class="lg:col-span-4 flex flex-col gap-6">
+      
+      <!-- The Video Agent Core Portal -->
+      <div class="card p-5 flex flex-col gap-5 bg-gradient-to-b from-slate-900 to-slate-950 relative overflow-hidden">
+        
+        <!-- Live status badge -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="text-xs font-bold uppercase text-slate-200">Aura AI Video Feed</span>
+          </div>
+          <span id="speech-status" class="text-[10px] font-bold text-slate-500">Idle</span>
+        </div>
+
+        <!-- The Video Screen & Custom Avatar -->
+        <div id="iframe-container" class="relative w-full aspect-[4/3] rounded-2xl bg-slate-950 border border-slate-800 shadow-inner overflow-hidden flex items-center justify-center">
+          <div id="iframe-placeholder" class="w-full h-full flex flex-col items-center justify-center relative p-6">
+            
+            <!-- Elegant Visual Simulated Avatar Frame -->
+            <div class="avatar-container relative w-28 h-28 rounded-full bg-slate-900 border-4 border-slate-800 shadow-2xl transition flex items-center justify-center">
+              
+              <!-- Simulated Waveform ring -->
+              <div class="waveform-pulse"></div>
+
+              <!-- Premium Mock Avatar Face Representation -->
+              <div class="avatar-face w-24 h-24 rounded-full overflow-hidden bg-gradient-to-tr from-indigo-950 via-slate-900 to-slate-800 flex items-center justify-center relative border border-slate-750">
+                <svg class="w-12 h-12 text-slate-400 absolute z-10" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                
+                <!-- Talking state background lines -->
+                <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/15 via-purple-500/10 to-transparent scale-110 opacity-0 avatar-talking-bg"></div>
+              </div>
+            </div>
+
+            <span class="text-[10px] font-bold text-slate-500 tracking-wider uppercase mt-4">Aura (Nutrition Coach)</span>
+            <p class="text-[11px] text-center text-slate-400 leading-normal max-w-xs mt-1.5">
+              Launch voice interaction below to converse with the agent and automatically trigger external tools.
+            </p>
+          </div>
+        </div>
+
+        <!-- Session Controls Panel -->
+        <div class="flex flex-col gap-4">
+          
+          <!-- Large Start / End Call Trigger Buttons -->
+          <div class="flex gap-3">
+            <button id="start-call-btn" class="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-98 text-white font-bold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/20">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd"></path></svg>
+              Start Call
+            </button>
+            <button id="stop-call-btn" class="flex-1 bg-gradient-to-r from-red-700 to-rose-700 hover:from-red-650 hover:to-rose-650 active:scale-98 text-white font-bold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-red-950/20 hidden">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+              End Call
+            </button>
+          </div>
+
+          <!-- Interaction options (Mute, Mic toggle) -->
+          <div class="flex justify-between items-center gap-2">
+            <button id="voice-toggle-btn" class="px-3 py-2 bg-slate-900 border border-slate-800 hover:bg-slate-850 rounded-xl text-[10px] text-slate-300 font-bold flex items-center gap-1.5 transition">
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+              Voice On
+            </button>
+
+            <button id="mic-btn" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:border-indigo-500 hover:bg-slate-850 flex items-center justify-center transition" title="Press to speak">
+              <svg class="w-4 h-4 text-slate-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+
+          <!-- Speech Transcript box -->
+          <div class="flex flex-col gap-2">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Live Transcript & Logs</span>
+            <div id="chat-history" class="h-44 rounded-xl border border-slate-900 bg-slate-950/60 p-3 overflow-y-auto flex flex-col gap-3">
+              <div class="text-slate-600 text-center py-8 text-xs font-semibold">
+                No active call transcript. Click 'Start Call' above.
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input text block fallback -->
+          <div class="flex gap-2">
+            <input 
+              type="text" 
+              id="chat-input" 
+              placeholder="Ask Aura a question..." 
+              class="flex-1 bg-slate-900 border border-slate-800 text-slate-200 outline-none rounded-xl px-3.5 py-2 text-xs focus:border-indigo-500 placeholder-slate-650"
+            >
+            <button id="send-chat-btn" class="bg-indigo-600 hover:bg-indigo-500 w-9 h-9 rounded-xl flex items-center justify-center shrink-0 active:scale-95 transition text-white">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+
+          <!-- Quick Actions / Prompts -->
+          <div class="flex flex-col gap-1.5 mt-1 border-t border-slate-800/60 pt-3">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Interactive Quick Triggers</span>
+            <div class="flex flex-wrap gap-1.5">
+              <button class="quick-prompt-btn text-[10px] font-semibold bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-850 px-2.5 py-1.5 rounded-lg text-slate-300 transition">🥗 Suggest full meal plan</button>
+              <button class="quick-prompt-btn text-[10px] font-semibold bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-850 px-2.5 py-1.5 rounded-lg text-slate-300 transition">📅 Sync schedule to calendar</button>
+              <button class="quick-prompt-btn text-[10px] font-semibold bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-850 px-2.5 py-1.5 rounded-lg text-slate-300 transition">🛒 Build my Instacart list</button>
+              <button class="quick-prompt-btn text-[10px] font-semibold bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-850 px-2.5 py-1.5 rounded-lg text-slate-300 transition">🍳 Log breakfast calories</button>
+              <button class="quick-prompt-btn text-[10px] font-semibold bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-850 px-2.5 py-1.5 rounded-lg text-slate-300 transition">📧 Email my custom PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLUMN 3: EXTERNAL TOOLS HUD & DATA VISUALIZER (4 Cols) -->
+    <section class="lg:col-span-4 flex flex-col gap-6">
+      
+      <!-- Card 3: External Connected Tools HUD Indicator -->
+      <div class="card p-5 flex flex-col gap-4">
+        <div class="flex items-center gap-2 border-b border-slate-800/80 pb-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          <h2 class="text-sm font-bold tracking-wider uppercase text-slate-300">3. External Tools HUD</h2>
+        </div>
+
+        <!-- Connection Status badges -->
+        <div class="grid grid-cols-2 gap-2">
+          <button data-tool-trigger="sync_diet_calendar" id="hud-sync-badge" class="hud-badge flex items-center gap-2 p-2 rounded-xl text-left border text-xs font-semibold select-none group transition">
+            <span class="status-dot w-2 h-2 rounded-full shrink-0"></span>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-slate-200">Calendar Sync</span>
+              <span class="text-[8px] text-slate-500 font-mono tracking-tighter">sync_diet_calendar</span>
+            </div>
+          </button>
+
+          <button data-tool-trigger="order_grocery_cart" id="hud-grocery-badge" class="hud-badge flex items-center gap-2 p-2 rounded-xl text-left border text-xs font-semibold select-none group transition">
+            <span class="status-dot w-2 h-2 rounded-full shrink-0"></span>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-slate-200">Grocery Cart</span>
+              <span class="text-[8px] text-slate-500 font-mono tracking-tighter">order_grocery_cart</span>
+            </div>
+          </button>
+
+          <button data-tool-trigger="generate_pdf_diet_report" id="hud-pdf-badge" class="hud-badge flex items-center gap-2 p-2 rounded-xl text-left border text-xs font-semibold select-none group transition">
+            <span class="status-dot w-2 h-2 rounded-full shrink-0"></span>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-slate-200">PDF Report</span>
+              <span class="text-[8px] text-slate-500 font-mono tracking-tighter">generate_pdf_report</span>
+            </div>
+          </button>
+
+          <button data-tool-trigger="log_daily_consumption" id="hud-cal-badge" class="hud-badge flex items-center gap-2 p-2 rounded-xl text-left border text-xs font-semibold select-none group transition">
+            <span class="status-dot w-2 h-2 rounded-full shrink-0"></span>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold text-slate-200">Health Logger</span>
+              <span class="text-[8px] text-slate-500 font-mono tracking-tighter">health_logger_mcp</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Tab 1: Google Calendar View -->
+        <div class="flex flex-col gap-2">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Google Calendar Timeline (Active Synced Slots)</span>
+          <div id="calendar-timeline" class="max-h-56 overflow-y-auto flex flex-col gap-2 p-1">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+
+        <!-- Tab 2: Instacart Grocery Basket -->
+        <div class="flex flex-col gap-2 border-t border-slate-800/80 pt-4">
+          <div class="flex justify-between items-center">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Instacart Grocery Basket</span>
+            <span id="grocery-total" class="text-xs font-extrabold text-indigo-400">$0.00</span>
+          </div>
+          <div id="grocery-list" class="max-h-40 overflow-y-auto flex flex-col gap-1.5 p-1">
+            <!-- Filled dynamically -->
+          </div>
+          <button id="grocery-checkout-btn" class="w-full bg-slate-900 border border-slate-800 hover:border-emerald-500/50 hover:bg-emerald-950/20 text-emerald-400 font-bold py-2 rounded-lg text-[10px] uppercase transition tracking-wider">
+            Proceed to Grocery Checkout Cart
+          </button>
+        </div>
+
+        <!-- Tab 3: Health Progress Logger Rings -->
+        <div class="flex flex-col gap-2 border-t border-slate-800/80 pt-4">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Health & Macro Intake Trackers</span>
+          <div class="flex justify-around items-center my-1.5">
+            
+            <!-- Calorie progress ring SVG -->
+            <div class="flex flex-col items-center gap-1">
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-full h-full transform -rotate-90">
+                  <circle cx="40" cy="40" r="36" class="stroke-slate-900 fill-transparent stroke-[6]"></circle>
+                  <circle cx="40" cy="40" r="36" id="cal-ring" class="stroke-indigo-500 fill-transparent stroke-[6] stroke-linecap-round" style="stroke-dasharray: 226; stroke-dashoffset: 226; transition: stroke-dashoffset 0.6s ease;"></circle>
+                </svg>
+                <div id="cal-text" class="absolute text-center text-[10px] font-semibold text-slate-300 leading-none">
+                  0<br><span class="text-[8px] text-slate-500">kcal</span>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-slate-400">Calories Logged</span>
+            </div>
+
+            <!-- Hydration progress ring SVG -->
+            <div class="flex flex-col items-center gap-1">
+              <div class="relative w-20 h-20 flex items-center justify-center">
+                <svg class="w-full h-full transform -rotate-90">
+                  <circle cx="40" cy="40" r="36" class="stroke-slate-900 fill-transparent stroke-[6]"></circle>
+                  <circle cx="40" cy="40" r="36" id="water-ring" class="stroke-emerald-400 fill-transparent stroke-[6] stroke-linecap-round" style="stroke-dasharray: 226; stroke-dashoffset: 226; transition: stroke-dashoffset 0.6s ease;"></circle>
+                </svg>
+                <div id="water-text" class="absolute text-center text-[10px] font-semibold text-slate-300 leading-none">
+                  0.5L<br><span class="text-[8px] text-slate-500">Hydrated</span>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-slate-400">Water Consumption</span>
+            </div>
+
+          </div>
+
+          <!-- Macro distribution bars -->
+          <div class="flex flex-col gap-2 mt-1 bg-slate-950/40 p-3 rounded-xl border border-slate-900">
+            <div class="flex flex-col gap-0.5">
+              <div class="flex justify-between text-[9px] font-bold text-slate-400">
+                <span>🥩 PROTEIN INTAKE</span>
+                <span id="protein-text" class="text-slate-300">0g / 0g</span>
+              </div>
+              <div class="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+                <div id="protein-bar" class="h-full bg-indigo-500 rounded-full transition-all duration-500" style="width: 25%;"></div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-0.5">
+              <div class="flex justify-between text-[9px] font-bold text-slate-400">
+                <span>🌾 CARBS DISTRIBUTION</span>
+                <span id="carbs-text" class="text-slate-300">0g / 0g</span>
+              </div>
+              <div class="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+                <div id="carbs-bar" class="h-full bg-amber-500 rounded-full transition-all duration-500" style="width: 20%;"></div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-0.5">
+              <div class="flex justify-between text-[9px] font-bold text-slate-400">
+                <span>🥑 FATS DISTRIBUTION</span>
+                <span id="fats-text" class="text-slate-300">0g / 0g</span>
+              </div>
+              <div class="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+                <div id="fats-bar" class="h-full bg-rose-500 rounded-full transition-all duration-500" style="width: 15%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: PDF Export Download Center -->
+        <div class="flex flex-col gap-2 border-t border-slate-800/80 pt-4">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">PDF Export Download Center</span>
+          <div id="pdf-list" class="flex flex-col gap-1.5 max-h-36 overflow-y-auto">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Import JS Scripts -->
+  <script src="mock_tools.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
